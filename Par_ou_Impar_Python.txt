@@ -1,0 +1,54 @@
+def on_button_pressed_a():
+    global escolha_humana
+    escolha_humana = escolha_humana + 2
+    if escolha_humana == 2:
+        basic.show_number(2)
+    elif escolha_humana == 4:
+        basic.show_number(4)
+    else:
+        escolha_humana = 0
+input.on_button_pressed(Button.A, on_button_pressed_a)
+
+def on_button_pressed_ab():
+    global escolha_maquina
+    escolha_maquina = randint(1, 4)
+    basic.show_number(escolha_maquina)
+    basic.pause(2000)
+    if escolha_maquina % 2 == 0:
+        basic.show_string("Par")
+        if escolha_humana == 2:
+            basic.show_string("Ganhou")
+        elif escolha_humana == 4:
+            basic.show_string("Ganhou")
+        elif escolha_humana == 1:
+            basic.show_string("Perdeu")
+        elif escolha_humana == 3:
+            basic.show_string("Perdeu")
+    elif escolha_maquina % 2 == 1:
+        basic.show_string("Impar")
+        if escolha_humana == 1:
+            basic.show_string("\"Ganhou\"")
+        elif escolha_humana == 3:
+            basic.show_string("Ganhou")
+        elif escolha_humana == 2:
+            basic.show_string("Perdeu")
+        elif escolha_humana == 4:
+            basic.show_string("Perdeu")
+input.on_button_pressed(Button.AB, on_button_pressed_ab)
+
+def on_button_pressed_b():
+    global escolha_humana
+    escolha_humana = escolha_humana + 1
+    if escolha_humana == 1:
+        basic.show_number(1)
+    elif escolha_humana == 2:
+        basic.show_number(3)
+    else:
+        escolha_humana = 0
+input.on_button_pressed(Button.B, on_button_pressed_b)
+
+escolha_maquina = 0
+escolha_humana = 0
+basic.show_string("A = Par")
+basic.show_string("B = Impar")
+escolha_humana = 0

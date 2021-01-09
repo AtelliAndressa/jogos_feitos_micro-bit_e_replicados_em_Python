@@ -1,0 +1,113 @@
+
+def on_button_pressed_a():
+    global escolha_humana
+    escolha_humana = escolha_humana - 1
+    if escolha_humana == 3:
+        basic.show_leds("""
+            # # . . .
+            # # . # #
+            . . # . .
+            # # . # #
+            # # . . .
+            """)
+    elif escolha_humana == 2:
+        basic.show_leds("""
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            """)
+    elif escolha_humana == 1:
+        basic.show_leds("""
+            . . # . .
+            . # # # .
+            # # # # #
+            . # # # .
+            . . # . .
+            """)
+    else:
+        escolha_humana = 4
+input.on_button_pressed(Button.A, on_button_pressed_a)
+
+def on_button_pressed_ab():
+    global escolha_maquina
+    escolha_maquina = randint(1, 3)
+    if escolha_maquina == 1:
+        basic.show_leds("""
+            . . # . .
+            . # # # .
+            # # # # #
+            . # # # .
+            . . # . .
+            """)
+        if escolha_humana == 1:
+            basic.show_icon(IconNames.ASLEEP)
+        elif escolha_humana == 2:
+            basic.show_icon(IconNames.HAPPY)
+        else:
+            basic.show_icon(IconNames.SAD)
+    elif escolha_maquina == 2:
+        basic.show_leds("""
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            """)
+        if escolha_humana == 2:
+            basic.show_icon(IconNames.ASLEEP)
+        elif escolha_humana == 3:
+            basic.show_icon(IconNames.HAPPY)
+        else:
+            basic.show_icon(IconNames.SAD)
+    elif escolha_maquina == 3:
+        basic.show_leds("""
+            # # # # #
+            # # # . #
+            # # # . #
+            # # # . #
+            # # # . #
+            """)
+        if escolha_humana == 3:
+            basic.show_icon(IconNames.ASLEEP)
+        elif escolha_humana == 1:
+            basic.show_icon(IconNames.HAPPY)
+        else:
+            basic.show_icon(IconNames.SAD)
+input.on_button_pressed(Button.AB, on_button_pressed_ab)
+
+def on_button_pressed_b():
+    global escolha_humana
+    escolha_humana = escolha_humana + 1
+    if escolha_humana == 1:
+        basic.show_leds("""
+            . . # . .
+            . # # # .
+            # # # # #
+            . # # # .
+            . . # . .
+            """)
+    elif escolha_humana == 2:
+        basic.show_leds("""
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            """)
+    elif escolha_humana == 3:
+        basic.show_leds("""
+            # # . . .
+            # # . # #
+            . . # . .
+            # # . # #
+            # # . . .
+            """)
+    else:
+        escolha_humana = 0
+input.on_button_pressed(Button.B, on_button_pressed_b)
+
+escolha_maquina = 0
+escolha_humana = 0
+escolha_humana = 0
